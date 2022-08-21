@@ -1,0 +1,49 @@
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.example-form {
+  @include center;
+  height: 100vh;
+
+  .example-full-width {
+    width: 50vw;
+  }
+}
+
+.container {
+  position: relative;
+}
+
+input[type="number"] {
+  /* Firefox */
+  -moz-appearance: textfield;
+  position: relative;
+  margin-right: 5px;
+
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  & + .actions {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 5px;
+    top: -17px;
+    right: 0px;
+
+    .arrow-container {
+      .arrow {
+        @include center;
+        height: 15px;
+        cursor: pointer;
+        font-size: 15px;
+      }
+    }
+  }
+}
